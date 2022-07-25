@@ -1,8 +1,7 @@
-- hosts: webservers
+---
+- hosts: all
   tasks:
-   - name: Ansible create directory and set permissions    
-     file:
-       path: /home/azureuser/    
-        state: directory      
-        mode: "u=rw,g=wx,o=rwx"    
-   become: yes
+  - name: ansible create directory example
+    file:
+      path: /tmp/devops_directory
+      state: directory
