@@ -1,2 +1,6 @@
 [webservers]
-20.239.164.254 ansible_user=azureuser
+20.239.164.254 
+
+[all:vars]
+ansible_user=azureuser
+ansible_python_interpreter=/usr/bin/python3
