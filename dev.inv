@@ -1,3 +1,3 @@
 [webservers]
-192.168.0.112 ansible_user=root
-192.168.0.112 ansible_user=root
+20.239.115.156 ansible_user=root
+20.239.114.175 ansible_user=root
