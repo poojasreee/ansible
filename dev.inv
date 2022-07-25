@@ -1,3 +1,3 @@
-[hosts]
+[webservers]
 20.239.115.156 ansible_user=azureuser
 20.239.114.175 ansible_user=azureuser
