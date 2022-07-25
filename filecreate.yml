@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: hosts
   tasks:
   - name: ansible create directory example
     file:
