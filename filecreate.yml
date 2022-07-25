@@ -3,5 +3,19 @@
   tasks:
   - name: ansible create directory example
     file:
-      path: /home/azureuser/tmpdir
+      path: /home/azureuser/pooja
       state: directory
+  tasks:
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Start Apache server
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html
+        dest: /var/www/html/
