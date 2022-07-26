@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
-  vars: 
-    directory: pooja
+  vars:
+     - vars/vars.yml
   tasks:
   - name: ansible create directory example
     file:
