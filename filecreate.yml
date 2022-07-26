@@ -1,7 +1,9 @@
 ---
 - hosts: webservers
+  vars: 
+    directory: pooja
   tasks:
   - name: ansible create directory example
     file:
-      path: /home/azureuser/pooja
+      path: /home/azureuser/{{ directory }}
       state: directory
