@@ -3,5 +3,5 @@
   tasks:
   - name: ansible create directory example
     file:
-      path: " {{ directory }} "
+      path: /home/azureuser/{{directory}}
       state: directory
