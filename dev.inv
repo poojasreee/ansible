@@ -1,6 +1,6 @@
 [webservers]
 20.24.81.95
 
-[all:vars]
+[webservers:vars]
 ansible_user=azureuser
 ansible_python_interpreter=/usr/bin/python3
