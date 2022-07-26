@@ -1,9 +1,7 @@
 ---
 - hosts: webservers
-  vars_files:
-    - ./vars/variables.yml
   tasks:
   - name: ansible create directory example
     file:
-      path: {{ directory_path }}
+      path: " {{ directory }} "
       state: directory
