@@ -1,9 +1,9 @@
 ---
 - hosts: webservers
-  vars:
-     - vars/vars.yml
+  vars_files:
+    - ./vars/variables.yml
   tasks:
   - name: ansible create directory example
     file:
-      path: /home/azureuser/{{ directory }}
+      path: {{ directory_path }}
       state: directory
