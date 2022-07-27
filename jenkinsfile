@@ -6,11 +6,6 @@ parameters {
       description: 'test',
       defaultValue: 'default'
     )
-    string(
-      name: 'Name',
-      description: 'test',
-      defaultValue: 'default'
-    )
 }
 stages{
   stage('Execute Playbook1'){
@@ -29,7 +24,6 @@ stages{
            ansiblePlaybook credentialsId: 'private_key', 
            disableHostKeyChecking: true, 
            colorized   : true,
-           extras: "-e http_host=${params.Name}", 
            installation: 'ansible', 
            inventory: 'dev.inv', 
            playbook: 'apache.yml'
