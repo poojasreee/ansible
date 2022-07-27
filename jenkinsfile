@@ -9,7 +9,6 @@ stages{
          installation: 'ansible', 
          inventory: 'dev.inv', 
          playbook: 'filecreate.yml'
-         colorized: true
      }
     }
   } 
