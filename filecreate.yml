@@ -1,7 +1,9 @@
 ---
 - hosts: webservers
+  become: true
   tasks:
   - name: ansible create directory example
+    create_file:
     file:
       path: /home/azureuser/{{directory}}
       state: directory
