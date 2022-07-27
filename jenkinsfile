@@ -1,6 +1,11 @@
 pipeline{
 agent any
-properties([parameters([string(defaultValue: 'default', description: 'directory value', name: 'VARIABLE')])])
+parameters {
+    string(
+      name: 'VARIABLE',
+      description: 'test',
+      defaultValue: 'default'
+    )
 stages{
   stage('Execute Ansible'){
   steps{
