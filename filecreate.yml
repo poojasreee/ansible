@@ -5,5 +5,5 @@
   - name: ansible create directory example
     create_file:
     file:
-      path: /home/azureuser/{{directory}}
+      path: /home/azureuser/{{variable}}
       state: directory
