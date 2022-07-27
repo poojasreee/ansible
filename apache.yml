@@ -1,8 +1,6 @@
 ---
 - hosts: webservers
   become: true
-  vars:
-         - vars/default.yml
 - tasks:
     - name: Install latest version of Apache
       apt: name=apache2 update_cache=yes state=latest
