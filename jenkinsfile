@@ -1,14 +1,12 @@
 pipeline{
 agent any
-parameters {
-        string(name: 'VARIABLE', defaultValue: 'default', description: 'set env to dev')
-    }
+properties([parameters([string(defaultValue: 'default', description: 'directory value', name: 'VARIABLE')])])
 stages{
   stage('Execute Ansible'){
   steps{
          ansiblePlaybook credentialsId: 'private_key', 
          disableHostKeyChecking: true, 
-         extras: "-e variable=${params.name}", 
+         extras: "-e variable=${params.VARIABLE}", 
          installation: 'ansible', 
          inventory: 'dev.inv', 
          playbook: 'filecreate.yml'
