@@ -8,7 +8,7 @@ stages{
   steps{
          ansiblePlaybook credentialsId: 'private_key', 
          disableHostKeyChecking: true, 
-         extras: "-e variable=${params.VARIABLE}", 
+         extras: "-e variable=${params.name}", 
          installation: 'ansible', 
          inventory: 'dev.inv', 
          playbook: 'filecreate.yml'
