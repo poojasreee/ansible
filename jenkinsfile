@@ -1,10 +1,15 @@
 pipeline{
 agent any
 stages{
-  stage('Execute ansible'){
-    steps{
-        ansiblePlaybook become: true, becomeUser: 'azureuser', credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'filecreate.yml'
+  stage('Execute Ansible'){
+  steps{
+         ansiblePlaybook credentialsId: 'private_key', 
+         disableHostKeyChecking: true, 
+         extras: "-e variable=${directory}", 
+         installation: 'ansible', 
+         inventory: 'dev.inv', 
+         playbook: 'filecreate.yml'
+     }
     }
   } 
-}
 }
