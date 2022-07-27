@@ -3,8 +3,7 @@ agent any
 stages{
   stage('Execute Ansible'){
   steps{
-         ansiblePlaybook become: true
-         credentialsId: 'private_key', 
+         ansiblePlaybook credentialsId: 'private_key', 
          disableHostKeyChecking: true, 
          extras: "-e variable=${directory}", 
          installation: 'ansible', 
