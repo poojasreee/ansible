@@ -7,13 +7,13 @@ parameters {
       defaultValue: 'default'
     )
     string(
-      name: 'http_host',
+      name: 'Name',
       description: 'test',
       defaultValue: 'default'
     )
 }
 stages{
-  stage('Execute Ansible'){
+  stage('Execute Playbook1'){
        steps{
            ansiblePlaybook credentialsId: 'private_key', 
            disableHostKeyChecking: true, 
@@ -24,12 +24,12 @@ stages{
            playbook: 'filecreate.yml'
      }
     }
-    stage('Deploy index.html via ansible'){
+    stage('Execute Playbook2'){
         steps{
            ansiblePlaybook credentialsId: 'private_key', 
            disableHostKeyChecking: true, 
            colorized   : true,
-           extras: "-e http_host=${params.http_host}", 
+           extras: "-e http_host=${params.Name}", 
            installation: 'ansible', 
            inventory: 'dev.inv', 
            playbook: 'apache.yml'
