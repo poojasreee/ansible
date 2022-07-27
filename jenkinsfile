@@ -6,6 +6,7 @@ parameters {
       description: 'test',
       defaultValue: 'default'
     )
+}
 stages{
   stage('Execute Ansible'){
   steps{
