@@ -6,17 +6,34 @@ parameters {
       description: 'test',
       defaultValue: 'default'
     )
+    string(
+      name: 'http_host',
+      description: 'test',
+      defaultValue: 'default'
+    )
 }
 stages{
   stage('Execute Ansible'){
-  steps{
-         ansiblePlaybook credentialsId: 'private_key', 
-         disableHostKeyChecking: true, 
-         extras: "-e variable=${params.VARIABLE}", 
-         installation: 'ansible', 
-         inventory: 'dev.inv', 
-         playbook: 'filecreate.yml'
+       steps{
+           ansiblePlaybook credentialsId: 'private_key', 
+           disableHostKeyChecking: true, 
+           colorized   : true,
+           extras: "-e variable=${params.VARIABLE}", 
+           installation: 'ansible', 
+           inventory: 'dev.inv', 
+           playbook: 'filecreate.yml'
      }
+    }
+    stage('Deploy index.html via ansible'){
+        steps{
+           ansiblePlaybook credentialsId: 'private_key', 
+           disableHostKeyChecking: true, 
+           colorized   : true,
+           extras: "-e http_host=${params.http_host}", 
+           installation: 'ansible', 
+           inventory: 'dev.inv', 
+           playbook: 'apache.yml'
+        }
     }
   } 
 }
